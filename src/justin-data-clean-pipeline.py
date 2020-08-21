@@ -29,13 +29,13 @@ def pipeline(json_file):
         td_tags = soup_lst[i].find_all('td')
         other_stuff.append(td_tags[0].text)
         content.append(td_tags[1].text)
-    contents_split = []
+    contents_lower = []
     for val in content:
         if val == None:
-            contents_split.append("")
+            contents_lower.append("")
         else:
-            contents_split.append(val.lower().split(' '))
-    return other_stuff, contents_split
+            contents_lower.append(val.lower())
+    return other_stuff, contents_lower
 
 if __name__ == "__main__":
     
