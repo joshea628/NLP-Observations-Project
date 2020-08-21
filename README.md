@@ -36,7 +36,7 @@ The data was supplied in JSON format, with 4 unique keys: _id (unique citing ID)
 
 ## EDA
 
-Top 10 Locations of sightings:
+Top 10 Locations of sightings for the first 100 points of data:
 Using the value counts, we were able to narrow down to the top ten locations where the sightings occured. For the 100 samples, Albuquerque, NM and Phoenix, AZ tied at 3 sightings each.
 <p>
 
@@ -44,7 +44,7 @@ Using the value counts, we were able to narrow down to the top ten locations whe
 
 </p>
 
-Top 10 Shapes reported for sightings:
+Top 10 Shapes reported for sightings for the first 100 points of data:
 The majority of shape sightings
 <p>
 
