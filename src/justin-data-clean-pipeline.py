@@ -27,9 +27,15 @@ def pipeline(json_file):
     other_stuff = []
     for i in range(len(soup_lst)):
         td_tags = soup_lst[i].find_all('td')
-        other_stuff.append(td_tags[0])
-        content.append(td_tags[1])
-    return other_stuff, content
+        other_stuff.append(td_tags[0].text)
+        content.append(td_tags[1].text)
+    contents_split = []
+    for val in content:
+        if val == None:
+            contents_split.append("")
+        else:
+            contents_split.append(val.lower().split(' '))
+    return other_stuff, contents_split
 
 if __name__ == "__main__":
     
@@ -70,4 +76,4 @@ if __name__ == "__main__":
     # id_lst, url_lst, soup_lst, time_lst = separate_json(file)
     # print(len(id_lst), len(url_lst), len(soup_lst), len(time_lst))
     other_stuff, content = pipeline(file)
-    print(len(other_stuff), len(content))
+    print(other_stuff[0], content[0])
