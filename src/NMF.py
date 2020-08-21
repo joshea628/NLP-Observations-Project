@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import NMF
 import matplotlib.pyplot as plt 
 import pandas as pd
+from justin_clean_pipeline import pipeline
+
 
 plt.style.use('ggplot')
 
@@ -47,3 +49,7 @@ def NMF(k, names, topics, movies):
 
     return W, H
 
+if __name__ : "__main__":
+    file = '../data/ufo_first100records.json'
+    other_stuff, documents = pipeline(file)
+    mat = 
