@@ -35,7 +35,33 @@ def pipeline(json_file):
             contents_lower.append("")
         else:
             contents_lower.append(val.lower())
-    return other_stuff, contents_lower
+    words_to_remove = ['Occurred', 'Reported', 'Posted', 
+                       'Location', 'Shape', 'Duration']
+    features_dic = {'Occurred': [],'Location': [],
+                    'Shape': [], 'Duration': []}
+    
+    for i in range(len(other_stuff)):
+        removekeys = other_stuff[i]
+        for val in words_to_remove:
+            removekeys = removekeys.replace(val,"")
+        lst = removekeys.split(':')
+        try:
+            features_dic['Occurred'].append(lst[1])
+        except:
+            features_dic['Occurred'].append(None)
+        try:
+            features_dic['Location'].append(lst[10])
+        except:
+            features_dic['Location'].append(None)
+        try:
+            features_dic['Shape'].append(lst[11])
+        except:
+            features_dic['Shape'].append(None)
+        try:
+            features_dic['Duration'].append(lst[12])
+        except:
+            features_dic['Duration'].append(None)
+    return features_dic, contents_lower
 
 if __name__ == "__main__":
     
@@ -71,9 +97,38 @@ if __name__ == "__main__":
     # print(other_lst)
     # print(time_lst[0])
     file = '../data/ufo_first100records.json'
-    records = import_records(file)
+    # records = import_records(file)
     
     # id_lst, url_lst, soup_lst, time_lst = separate_json(file)
     # print(len(id_lst), len(url_lst), len(soup_lst), len(time_lst))
-    other_stuff, content = pipeline(file)
-    print(other_stuff[0], content[0])
+    dic, content = pipeline(file)
+    print(dic['Duration'])
+    # print(features_dic)
+    # features_dic = {'Occurred': [], 'Reported': [], 'Posted': [], 'Location': [],
+    #                 'Shape': [], 'Duration': []}
+    # words_to_remove = list(features_dic.keys())
+    # print(words_to_remove)
+    # print(other_stuff[0])
+    # removekeys = other_stuff[10]
+    # for val in words_to_remove:
+    #     removekeys = removekeys.replace(val,"")
+    # print('\n',removekeys)
+
+    # lst = removekeys.split(':')
+    # print(lst)
+    # for idx, val in enumerate(lst):
+    #     print(f'{idx}: {val}')
+
+    # actual_dic = {'Occurred': [lst[1]],'Location': [lst[10]],
+    #                 'Shape': [lst[11]], 'Duration': [lst[12]]}
+    
+    # lenLst = []
+    # for i in range(len(other_stuff)):
+    #     removekeys = other_stuff[i]
+    #     for val in words_to_remove:
+    #         removekeys = removekeys.replace(val,"")
+    #     lst = removekeys.split(':')
+    #     lenLst.append(len(lst))
+    # print(lenLst)
+
+
