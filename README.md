@@ -92,7 +92,7 @@ Top 5 words for each K-Modes cluster:
 - base, object, porch, lights, talking
 
 
-## Conculsions
+## Conclusions
 
 While we couldn't get our functions/graphs to run on the complete dataset, based on the first 100 entries, we found some typical words to describe UFO sightings. 
 
@@ -100,13 +100,14 @@ The top shape description is a circle, which makes sense if the UFO is a source 
 
 The top locations for sightings were: Albuquerque, NM (close to Roswell) and Pheonix, AZ (closish to Area-51). 
 
-Chris Reger also lives nearest the top UFO sightings and could be considered most likely to be an alien out of out DSI.
 
 ## Further Work
 
 Run our functions/analysis on the full dataset rather than just the first 100 entries.
 
 Do an analysis on whether there was a certain year/month/day of the week in which there were more UFO sightings using time-series analysis.
+
+Use soft clustering, and some analysis on locations of sightings.
 
 
 
